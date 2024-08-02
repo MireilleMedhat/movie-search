@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.header {
+  margin: 10px;
+  font-family: 'Playwrite AT';
+  text-align: center;
+  font-size: 50px;
+}
