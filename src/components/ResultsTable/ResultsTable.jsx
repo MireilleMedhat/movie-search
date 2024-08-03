@@ -1,49 +1,32 @@
 import { useEffect, useState } from 'react';
 import './ResultsTable.css';
 import axios from 'axios';
+import useSearch from '../../hooks/useSearch';
+import MovieRow from './MovieRow/MovieRow';
 
-const ResultsTable = () => {
-  const [searchText, setSearchText] = useState();
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    axios
-      .get(
-        'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&api_key=d87ddb182bccb4667d3e292553ab2caa&query=abc'
-      )
-      .then(function (response) {
-        // handle success
-        console.log(response);
-        setData(JSON.stringify(response));
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
-  }, []);
+const ResultsTable = ({ movies }) => {
+  console.log('movies', movies);
   return (
     <div className="tableContainer">
-      {data}
-      {/* <table>
-        <th>
-          <td>Emil</td>
-          <td>Tobias</td>
-          <td>Linus</td>
-        </th>
-        <tr>
-          <td>42</td>
-          <td>243</td>
-          <td>42</td>
-        </tr>
-        <tr>
-          <td>16</td>
-          <td>14</td>
-          <td>10</td>
-        </tr>
-      </table> */}
+      {movies?.length > 0 ? (
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            {/* <th>Overview</th> */}
+            <th>Release Date</th>
+            <th>Popularity</th>
+            <th>Vote Average</th>
+            <th>Vote Count</th>
+            <th>Original Language</th>
+          </tr>
+          {movies.map((movie) => {
+            return <MovieRow movieMetaData={movie} />;
+          })}
+        </table>
+      ) : (
+        <div>Type in search bar to search for movies.</div>
+      )}
     </div>
   );
 };

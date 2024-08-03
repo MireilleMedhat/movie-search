@@ -15,15 +15,17 @@ module.exports = {
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] }
     ],
   },
   // pass all js files through Babel
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
+    extensions: ["*", ".js", ".jsx", ".png", ".css"],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
+      favicon: path.join(__dirname, "public", "favicon.ico"),
     }),
   ],
   devServer: {
