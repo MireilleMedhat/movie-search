@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './movie-search-page.css';
+import './MovieSearchPage.css';
 import SearchBar from '../components/SearchBar/SearchBar';
 import ResultsTable from '../components/ResultsTable/ResultsTable';
 import useSearch from '../hooks/useSearch';
@@ -22,7 +22,7 @@ const MovieSearchPage = () => {
   }, [data]);
 
   return (
-    <div className="container">
+    <div className="container" data-testid="movie-search-page">
       <h1 className="header">Movie Search</h1>
       <SearchBar
         setSearchText={setSearchText}

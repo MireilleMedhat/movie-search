@@ -1,4 +1,4 @@
-import MovieSearchPage from './pages/movie-search-page';
+import MovieSearchPage from './pages/MovieSearchPage';
 import './App.css';
 
 const App = () => {

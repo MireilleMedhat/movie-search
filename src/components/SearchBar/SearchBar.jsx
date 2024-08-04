@@ -21,13 +21,18 @@ const SearchBar = ({ setSearchText, setCurrentPage }) => {
   }, [text]);
 
   return (
-    <div className="searchBar">
+    <div className="searchBar" data-testid="search-bar">
       <input
         type="text"
+        data-testid="search-input-text"
         onChange={(e) => setText(e.target.value)}
         className="searchField"
       />
-      <button className="searchButton" onClick={() => search()}>
+      <button
+        className="searchButton"
+        onClick={() => search()}
+        data-testid="search-button"
+      >
         🔍
       </button>
     </div>
