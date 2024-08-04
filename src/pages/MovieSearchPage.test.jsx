@@ -9,7 +9,7 @@ describe('Movie Search Page', () => {
     expect(screen.getByTestId('movie-search-page')).toBeInTheDocument();
   });
 
-  it('renders search bar', async () => {
+  it('allows user to enter text in the search bar and click search', async () => {
     const useSearchHookSpy = jest.spyOn(useSearch, 'default');
     render(<MovieSearchPage />);
     expect(useSearchHookSpy).toHaveReturnedWith({
@@ -30,8 +30,9 @@ describe('Movie Search Page', () => {
     expect(
       useSearchHookSpy.mock.calls[useSearchHookSpy.mock.calls.length - 1]
     ).toEqual(['abc', 1]);
+    // Can add more logic to test length of return results, but will need to await the API call
     // expect(
-    //   useSearchHookSpy.mock.results[useSearchHookSpy.mock.results.length - 1]
+    //   useSearchHookSpy.mock.results[useSearchHookSpy.mock.results.length - 1].length
     // ).toBe(20);
   });
   it('fails gracefully', () => {
