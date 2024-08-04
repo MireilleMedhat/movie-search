@@ -1,21 +1,12 @@
-import { useEffect, useState } from 'react';
-
+// Other available props:
+// adult, backdrop_path, genre_ids, de, original_title, overview, poster_path, video
 const MovieRow = ({ movieMetaData }) => {
-  const [searchText, setSearchText] = useState();
   const {
-    adult,
-    backdrop_path,
-    genre_ids,
     id,
     original_language,
-    de,
-    original_title,
-    overview,
     popularity,
-    poster_path,
     release_date,
     title,
-    video,
     vote_average,
     vote_count,
   } = movieMetaData;
@@ -23,7 +14,6 @@ const MovieRow = ({ movieMetaData }) => {
     <tr>
       <td>{id}</td>
       <td>{title}</td>
-      {/* <td>{overview}</td> */}
       <td>{release_date}</td>
       <td>{popularity}</td>
       <td>{vote_average}</td>

@@ -11,3 +11,15 @@
   text-align: center;
   font-size: 50px;
 }
+
+.tableContainer {
+  display: flex;
+  flex-grow: 1;
+  min-height: 0;
+  margin: 0 20px;
+  font-size: 20px;
+  padding: 8px 15px;
+  border-radius: 25px;
+  overflow: scroll;
+  background: rgba(255, 255, 255, 0.6);
+}

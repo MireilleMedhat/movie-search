@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import API_KEY from '../constants';
+import { API_KEY, BASE_URL } from '../Constants';
 
 const useSearch = (searchText, currentPage) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
@@ -12,20 +12,15 @@ const useSearch = (searchText, currentPage) => {
       setLoading(true);
       axios
         .get(
-          `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=${currentPage}&api_key=${API_KEY}&query=${searchText}`
+          `${BASE_URL}&page=${currentPage}&api_key=${API_KEY}&query=${searchText}`
         )
         .then(function (response) {
-          // handle success
-          console.log(response);
           setData(response?.data);
         })
         .catch(function (error) {
-          // handle error
-          console.log(error);
           setError(error);
         })
         .finally(function () {
-          // always executed
           setLoading(false);
         });
     }
