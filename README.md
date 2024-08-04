@@ -1,3 +1,14 @@
+![image](https://github.com/user-attachments/assets/0745ee2f-dfa4-442a-8aca-548fecc1e2c9)
+
+# Features
+
+- Allow user to type text in the search bar and click Enter or 'Search' button to search
+- Show loading message
+- Show no results message
+- Allow pagination for multiple-page search results
+- Fail gracefully
+- Show helper message for the user
+
 # Exercise
 
 Create a page that allows users to search for movies.
